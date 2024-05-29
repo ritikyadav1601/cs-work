@@ -36,7 +36,9 @@ const Results = () => {
 
   return (
     <>
+        <h1 className="heading">All Calculations</h1>
       <div className="results">
+
         <div className="allResults">
           <h4 className="values">ROAS: {roas || "N/A"}</h4>
         </div>

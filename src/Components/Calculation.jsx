@@ -69,32 +69,6 @@ const Calculation = () => {
       (TotalAdCost * 100) / RevenueAfterCancellation;
     const AdCostAfterReturn = (TotalAdCost * 100) / FinalTotalRevenue;
 
-    console.log("Total Revenue: ", TotalRevenue);
-    console.log("Ad GST: ", AdGst);
-    console.log("Total Ad Cost: ", TotalAdCost);
-    console.log("Revenue After Cancellation: ", RevenueAfterCancellation);
-    console.log("Prepaid Revenue: ", PrepaidRevenue);
-    console.log("COD Revenue after Return: ", CodRAlessPrepaidRevenue);
-    console.log("Revenueafter20: ", Revenueafter20);
-    console.log("Final Total Revenue: ", FinalTotalRevenue);
-    console.log("GST: ", GST);
-    console.log("Prepaid Shipping: ", PrepaidShipping);
-    console.log("COD Shipping: ", CODShipping);
-    console.log("Labour Cost: ", LabourCost);
-    console.log("Fix Cost: ", FixCost);
-    console.log("Material Cost: ", MaterialCost);
-    console.log("Paymoney: ", Paymoney);
-    console.log("Interact Charges: ", InteractCharges);
-    console.log("Total Expenses: ", TotalExp);
-    console.log("Total: ", Total);
-    console.log("Ad Percentage Without GST: ", AdPercentageWithoutGST);
-    console.log("Ad Percentage With GST: ", AdPercentageWithGST);
-    console.log(
-      "Ad Percentage After Cancellation: ",
-      AdPercentageAfterCancellation
-    );
-    console.log("Ad Cost After Return: ", AdCostAfterReturn);
-
     navigate("/results", {
       state: {
         roas,
@@ -130,61 +104,61 @@ const Calculation = () => {
   };
 
   return (
-      <div className="main">
-        <h1>Calculation</h1>
+    <div className="main">
+      <h1>Calculation</h1>
 
-        <input
-          type="number"
-          placeholder="ROAS"
-          className="inputs"
-          value={roas}
-          onChange={(e) => setRoas(e.target.value)}
-        />
-                
-        <input
-          type="number"
-          placeholder="Total Order"
-          className="inputs"
-          value={totalOrder}
-          onChange={(e) => setTotalOrder(e.target.value)}
-        />
-           
-        <input
-          type="number"
-          placeholder="AdCost"
-          className="inputs"
-          value={adCost}
-          onChange={(e) => setAdCost(e.target.value)}
-        />
+      <input
+        type="number"
+        placeholder="ROAS"
+        className="inputs"
+        value={roas}
+        onChange={(e) => setRoas(e.target.value)}
+      />
 
-        <input
-          type="number"
-          placeholder="Cancellation"
-          className="inputs"
-          value={cancellation}
-          onChange={(e) => setCancellation(e.target.value)}
-        />
+      <input
+        type="number"
+        placeholder="Total Order"
+        className="inputs"
+        value={totalOrder}
+        onChange={(e) => setTotalOrder(e.target.value)}
+      />
 
-        <input
-          type="number"
-          placeholder="Prepaid"
-          className="inputs"
-          value={prepaid}
-          onChange={(e) => setPrepaid(e.target.value)}
-        />
+      <input
+        type="number"
+        placeholder="AdCost"
+        className="inputs"
+        value={adCost}
+        onChange={(e) => setAdCost(e.target.value)}
+      />
 
-        <input
-          type="number"
-          placeholder="Return"
-          className="inputs"
-          value={returnVal}
-          onChange={(e) => setReturnVal(e.target.value)}
-        />
+      <input
+        type="number"
+        placeholder="Cancellation"
+        className="inputs"
+        value={cancellation}
+        onChange={(e) => setCancellation(e.target.value)}
+      />
 
-        <button className="inputs" onClick={handleCalculation}>
-          Get Calculation
-        </button>
-      </div>
+      <input
+        type="number"
+        placeholder="Prepaid"
+        className="inputs"
+        value={prepaid}
+        onChange={(e) => setPrepaid(e.target.value)}
+      />
+
+      <input
+        type="number"
+        placeholder="Return"
+        className="inputs"
+        value={returnVal}
+        onChange={(e) => setReturnVal(e.target.value)}
+      />
+
+      <button className="inputs" onClick={handleCalculation}>
+        Get Calculation
+      </button>
+    </div>
   );
 };
 
