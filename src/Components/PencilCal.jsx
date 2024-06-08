@@ -1,8 +1,7 @@
-import "./Styles/calculation.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Calculation = () => {
+const PencilCal = () => {
   const [roas, setRoas] = useState("");
   const [totalOrder, setTotalOrder] = useState("");
   const [adCost, setAdCost] = useState("");
@@ -46,10 +45,10 @@ const Calculation = () => {
     const PrepaidShipping =
       totalOrderNum * 40 * (1 - cancellationNum / 100) * (prepaidNum / 100);
     const CODShipping =
-      totalOrderNum * 70 * (1 - cancellationNum / 100) * (29 / 100);
-    const LabourCost = totalOrderNum * 1.7 * 20 * (1 - cancellationNum / 100);
-    const FixCost = totalOrderNum * 1.7 * 10 * (1 - cancellationNum / 100);
-    const MaterialCost = totalOrderNum * 1.7 * 20 * (1 - cancellationNum / 100);
+      totalOrderNum * 70 * (1 - cancellationNum / 100) * (45 / 100);
+    const LabourCost = totalOrderNum * 2 * 20 * (1 - cancellationNum / 100);
+    const FixCost = totalOrderNum * 2 * 10 * (1 - cancellationNum / 100);
+    const MaterialCost = totalOrderNum * 2 * 35 * (1 - cancellationNum / 100);
     const Paymoney = TotalRevenue * 0.01; // 1% Paymoney
     const InteractCharges = totalOrderNum * 2;
     const TotalExp =
@@ -68,8 +67,9 @@ const Calculation = () => {
     const AdPercentageAfterCancellation =
       (TotalAdCost * 100) / RevenueAfterCancellation;
     const AdCostAfterReturn = (TotalAdCost * 100) / FinalTotalRevenue;
+    const FinalTotal = LabourCost + FixCost + Total
 
-    navigate("/results", {
+    navigate("/pencil-results", {
       state: {
         roas,
         totalOrder,
@@ -99,67 +99,70 @@ const Calculation = () => {
         AdPercentageWithGST,
         AdPercentageAfterCancellation,
         AdCostAfterReturn,
+        FinalTotal
       },
     });
   };
 
   return (
-    <div className="main">
-      <h1>Calculation</h1>
+    <>
+      <div className="main">
+        <h1>Calculation</h1>
 
-      <input
-        type="number"
-        placeholder="ROAS"
-        className="inputs"
-        value={roas}
-        onChange={(e) => setRoas(e.target.value)}
-      />
+        <input
+          type="number"
+          placeholder="ROAS"
+          className="inputs"
+          value={roas}
+          onChange={(e) => setRoas(e.target.value)}
+        />
 
-      <input
-        type="number"
-        placeholder="Total Order"
-        className="inputs"
-        value={totalOrder}
-        onChange={(e) => setTotalOrder(e.target.value)}
-      />
+        <input
+          type="number"
+          placeholder="Total Order"
+          className="inputs"
+          value={totalOrder}
+          onChange={(e) => setTotalOrder(e.target.value)}
+        />
 
-      <input
-        type="number"
-        placeholder="AdCost"
-        className="inputs"
-        value={adCost}
-        onChange={(e) => setAdCost(e.target.value)}
-      />
+        <input
+          type="number"
+          placeholder="AdCost"
+          className="inputs"
+          value={adCost}
+          onChange={(e) => setAdCost(e.target.value)}
+        />
 
-      <input
-        type="number"
-        placeholder="Cancellation"
-        className="inputs"
-        value={cancellation}
-        onChange={(e) => setCancellation(e.target.value)}
-      />
+        <input
+          type="number"
+          placeholder="Cancellation"
+          className="inputs"
+          value={cancellation}
+          onChange={(e) => setCancellation(e.target.value)}
+        />
 
-      <input
-        type="number"
-        placeholder="Prepaid"
-        className="inputs"
-        value={prepaid}
-        onChange={(e) => setPrepaid(e.target.value)}
-      />
+        <input
+          type="number"
+          placeholder="Prepaid"
+          className="inputs"
+          value={prepaid}
+          onChange={(e) => setPrepaid(e.target.value)}
+        />
 
-      <input
-        type="number"
-        placeholder="Return"
-        className="inputs"
-        value={returnVal}
-        onChange={(e) => setReturnVal(e.target.value)}
-      />
+        <input
+          type="number"
+          placeholder="Return"
+          className="inputs"
+          value={returnVal}
+          onChange={(e) => setReturnVal(e.target.value)}
+        />
 
-      <button className="inputs" onClick={handleCalculation}>
-        Get Calculation
-      </button>
-    </div>
+        <button className="inputs" onClick={handleCalculation}>
+          Get Calculation
+        </button>
+      </div>
+    </>
   );
 };
 
-export default Calculation;
+export default PencilCal;
