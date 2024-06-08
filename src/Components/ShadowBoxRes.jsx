@@ -1,8 +1,8 @@
 import { useLocation } from "react-router-dom";
 
-const PencilResult = () => {
+const ShadowBoxRes = () => {
 
-  const location = useLocation();
+    const location = useLocation();
   const {
     roas,
     totalOrder,
@@ -37,7 +37,7 @@ const PencilResult = () => {
 
   return (
     <>
-      <h1 className="heading">All Calculations</h1>
+    <h1 className="heading">All Calculations</h1>
       <div className="results">
         <div className="allResults">
           <h4 className="values">ROAS: {roas || "N/A"}</h4>
@@ -147,8 +147,10 @@ const PencilResult = () => {
           <h4 className="values">Total 2: {Total || "N/A"}</h4>
         </div>
       </div>
-    </>
-  );
-};
 
-export default PencilResult;
+
+    </>
+  )
+}
+
+export default ShadowBoxRes
