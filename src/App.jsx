@@ -5,7 +5,7 @@ import PencilCal from "./Components/PencilCal";
 import FirstPage from "./Components/FirstPage";
 import WalletCal from "./Components/WalletCal";
 import WalletRes from "./Components/WalletRes";
-
+import PencilResult from "./Components/PencilResult"
 const App = () => {
 
   return (
@@ -18,7 +18,7 @@ const App = () => {
         <Route path="/results" element={<Results />} />
         
         <Route path="/pencil" element={<PencilCal />} />
-        <Route path="/pencil-results" element={<PencilCal />} />
+        <Route path="/pencil-results" element={<PencilResult />} />
 
         <Route path="/wallet" element={<WalletCal />} />
         <Route path="/wallet-results" element={<WalletRes />} />

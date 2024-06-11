@@ -103,7 +103,7 @@ const WalletRes = () => {
         </div>
         <div className="allResults">
           <h4 className="values">
-            Revenue after 20: {Revenueafter20 || "N/A"}
+            Revenue after 40: {Revenueafter20 || "N/A"}
           </h4>
         </div>
         <div className="allResults">

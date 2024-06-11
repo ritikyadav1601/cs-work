@@ -31,6 +31,7 @@ const PencilResult = () => {
     AdPercentageWithGST,
     AdPercentageAfterCancellation,
     AdCostAfterReturn,
+    FinalTotal
   } = location.state || {};
 
   
@@ -143,7 +144,7 @@ const PencilResult = () => {
           </h4>
         </div>
         <div className="allResults">
-          <h4 className="values">Total 2: {Total || "N/A"}</h4>
+          <h4 className="values">Total 2: {FinalTotal || "N/A"}</h4>
         </div>
       </div>
     </>
