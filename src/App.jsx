@@ -8,6 +8,12 @@ import WalletRes from "./Components/WalletRes";
 import PencilResult from "./Components/PencilResult";
 import Geometry from "./Components/Geometry";
 import GeometryRes from "./Components/GeometryRes";
+import PandaCal from "./Components/PandaCal";
+import PandaRes from "./Components/PandaRes";
+import PuzzleCal from "./Components/PuzzleCal";
+import PuzzleRes from "./Components/PuzzleRes";
+import ShadowBox from "./Components/ShadowBox";
+import ShadowBoxRes from "./Components/ShadowBoxRes";
 
 const App = () => {
 
@@ -29,8 +35,14 @@ const App = () => {
         <Route path="/geometry" element={<Geometry />} />
         <Route path="/geometry-results" element={<GeometryRes />} />
 
-        <Route path="/shadowBox" element={<Geometry />} />
-        <Route path="/shadowbox-results" element={<GeometryRes />} />
+        <Route path="/shadowbox" element={<ShadowBox />} />
+        <Route path="/shadowbox-results" element={<ShadowBoxRes />} />
+
+        <Route path="/panda" element={<PandaCal />} />
+        <Route path="/panda-results" element={<PandaRes />} />
+
+        <Route path="/puzzle" element={<PuzzleCal />} />
+        <Route path="/puzzle-results" element={<PuzzleRes />} />
 
       </Routes>
     </Router>

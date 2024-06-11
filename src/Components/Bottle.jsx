@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const ShadowBox = () => {
+const Bottle = () => {
   const [roas, setRoas] = useState("");
   const [totalOrder, setTotalOrder] = useState("");
   const [adCost, setAdCost] = useState("");
@@ -118,4 +118,4 @@ const ShadowBox = () => {
   );
 };
 
-export default ShadowBox;
+export default Bottle;
