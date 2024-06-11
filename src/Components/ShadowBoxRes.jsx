@@ -1,23 +1,15 @@
 import { useLocation } from "react-router-dom";
 
 const ShadowBoxRes = () => {
-
-    const location = useLocation();
+  const location = useLocation();
   const {
     roas,
     totalOrder,
     adCost,
     TotalRevenue,
-    cancellation,
     prepaid,
-    returnVal,
-    FinalTotalRevenue,
     AdGst,
     TotalAdCost,
-    RevenueAfterCancellation,
-    CodRAlessPrepaidRevenue,
-    PrepaidRevenue,
-    Revenueafter20,
     GST,
     PrepaidShipping,
     CODShipping,
@@ -30,14 +22,12 @@ const ShadowBoxRes = () => {
     Total,
     AdPercentageWithoutGST,
     AdPercentageWithGST,
-    AdPercentageAfterCancellation,
-    AdCostAfterReturn,
+    FinalTotal,
   } = location.state || {};
-
 
   return (
     <>
-    <h1 className="heading">All Calculations</h1>
+      <h1 className="heading">All Calculations</h1>
       <div className="results">
         <div className="allResults">
           <h4 className="values">ROAS: {roas || "N/A"}</h4>
@@ -57,38 +47,11 @@ const ShadowBoxRes = () => {
         <div className="allResults">
           <h4 className="values">Total Ad Cost: {TotalAdCost || "N/A"}</h4>
         </div>
-        <div className="allResults">
-          <h4 className="values">Cancellation: {cancellation || "N/A"}</h4>
-        </div>
-        <div className="allResults">
-          <h4 className="values">
-            Revenue after Cancellation: {RevenueAfterCancellation || "N/A"}
-          </h4>
-        </div>
+
         <div className="allResults">
           <h4 className="values">Prepaid: {prepaid || "N/A"}</h4>
         </div>
-        <div className="allResults">
-          <h4 className="values">Prepaid Revenue: {PrepaidRevenue || "N/A"}</h4>
-        </div>
-        <div className="allResults">
-          <h4 className="values">
-            COD RA less Prepaid Revenue: {CodRAlessPrepaidRevenue || "N/A"}
-          </h4>
-        </div>
-        <div className="allResults">
-          <h4 className="values">Return: {returnVal || "N/A"}</h4>
-        </div>
-        <div className="allResults">
-          <h4 className="values">
-            Revenue after 20: {Revenueafter20 || "N/A"}
-          </h4>
-        </div>
-        <div className="allResults">
-          <h4 className="values">
-            Final Total Revenue: {FinalTotalRevenue || "N/A"}
-          </h4>
-        </div>
+
         <div className="allResults">
           <h4 className="values">GST: {GST || "N/A"}</h4>
         </div>
@@ -133,24 +96,13 @@ const ShadowBoxRes = () => {
             Ad Cost % with GST: {AdPercentageWithGST || "N/A"}
           </h4>
         </div>
+
         <div className="allResults">
-          <h4 className="values">
-            Ad % after Cancellation: {AdPercentageAfterCancellation || "N/A"}
-          </h4>
-        </div>
-        <div className="allResults">
-          <h4 className="values">
-            Ad Cost after Return: {AdCostAfterReturn || "N/A"}
-          </h4>
-        </div>
-        <div className="allResults">
-          <h4 className="values">Total 2: {Total || "N/A"}</h4>
+          <h4 className="values">Total 2: {FinalTotal || "N/A"}</h4>
         </div>
       </div>
-
-
     </>
-  )
-}
+  );
+};
 
-export default ShadowBoxRes
+export default ShadowBoxRes;

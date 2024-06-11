@@ -3,107 +3,76 @@ import { useNavigate } from "react-router-dom";
 
 const Geometry = () => {
 
-    const [roas, setRoas] = useState("");
-    const [totalOrder, setTotalOrder] = useState("");
-    const [adCost, setAdCost] = useState("");
-    const [cancellation, setCancellation] = useState("2.6");
-    const [prepaid, setPrepaid] = useState(71);
-    const [returnVal, setReturnVal] = useState(22);
-  
-    const navigate = useNavigate();
-  
-    const handleCalculation = () => {
-      const roasNum = parseFloat(roas);
-      const adCostNum = parseFloat(adCost);
-      const cancellationNum = parseFloat(cancellation);
-      const prepaidNum = parseFloat(prepaid);
-      const returnNum = parseFloat(returnVal);
-      const totalOrderNum = parseFloat(totalOrder);
-  
-      if (
-        isNaN(roasNum) ||
-        isNaN(adCostNum) ||
-        isNaN(cancellationNum) ||
-        isNaN(prepaidNum) ||
-        isNaN(returnNum) ||
-        isNaN(totalOrderNum)
-      ) {
-        alert("Invalid input. Please ensure all inputs are valid numbers.");
-        return;
-      }
-  
-      const TotalRevenue = roasNum * adCostNum;
-      const AdGst = adCostNum * 0.18; // 18% of AdCost
-      const TotalAdCost = adCostNum + AdGst;
-      const RevenueAfterCancellation =
-        TotalRevenue - (TotalRevenue * cancellationNum) / 100;
-      const PrepaidRevenue = (RevenueAfterCancellation * prepaidNum) / 100;
-      const CodRAlessPrepaidRevenue = RevenueAfterCancellation - PrepaidRevenue;
-      const Revenueafter20 =
-        CodRAlessPrepaidRevenue - (CodRAlessPrepaidRevenue * returnNum) / 100;
-      const FinalTotalRevenue = PrepaidRevenue + Revenueafter20;
-      const GST = FinalTotalRevenue * 0.05; // 5% GST
-      const PrepaidShipping =
-        totalOrderNum * 40 * (1 - cancellationNum / 100) * (prepaidNum / 100);
-      const CODShipping =
-        totalOrderNum * 70 * (1 - cancellationNum / 100) * (45 / 100);
-      const LabourCost = totalOrderNum * 2 * 20 * (1 - cancellationNum / 100);
-      const FixCost = totalOrderNum * 2 * 10 * (1 - cancellationNum / 100);
-      const MaterialCost = totalOrderNum * 2 * 35 * (1 - cancellationNum / 100);
-      const Paymoney = TotalRevenue * 0.01; // 1% Paymoney
-      const InteractCharges = totalOrderNum * 2;
-      const TotalExp =
-        TotalAdCost +
-        GST +
-        PrepaidShipping +
-        CODShipping +
-        LabourCost +
-        FixCost +
-        MaterialCost +
-        Paymoney +
-        InteractCharges;
-      const Total = FinalTotalRevenue - TotalExp;
-      const AdPercentageWithoutGST = (adCostNum * 100) / TotalRevenue;
-      const AdPercentageWithGST = (TotalAdCost * 100) / TotalRevenue;
-      const AdPercentageAfterCancellation =
-        (TotalAdCost * 100) / RevenueAfterCancellation;
-      const AdCostAfterReturn = (TotalAdCost * 100) / FinalTotalRevenue;
-      const FinalTotal = LabourCost + FixCost + Total
-  
-      navigate("/geometry-results", {
-        state: {
-          roas,
-          totalOrder,
-          TotalRevenue,
-          adCost,
-          cancellation,
-          prepaid,
-          returnVal,
-          FinalTotalRevenue,
-          CodRAlessPrepaidRevenue,
-          AdGst,
-          TotalAdCost,
-          RevenueAfterCancellation,
-          PrepaidRevenue,
-          Revenueafter20,
-          GST,
-          PrepaidShipping,
-          CODShipping,
-          LabourCost,
-          FixCost,
-          MaterialCost,
-          Paymoney,
-          InteractCharges,
-          TotalExp,
-          Total,
-          AdPercentageWithoutGST,
-          AdPercentageWithGST,
-          AdPercentageAfterCancellation,
-          AdCostAfterReturn,
-          FinalTotal
-        },
-      });
-    };
+  const [roas, setRoas] = useState("");
+  const [totalOrder, setTotalOrder] = useState("");
+  const [adCost, setAdCost] = useState("");
+  const [prepaid, setPrepaid] = useState(71);
+
+  const navigate = useNavigate();
+
+  const handleCalculation = () => {
+    const roasNum = parseFloat(roas);
+    const adCostNum = parseFloat(adCost);
+    const prepaidNum = parseFloat(prepaid);
+    const totalOrderNum = parseFloat(totalOrder);
+
+    if (isNaN(roasNum) || isNaN(adCostNum) || isNaN(prepaidNum)) {
+      alert("Invalid input. Please ensure all inputs are valid numbers.");
+      return;
+    }
+
+    const TotalRevenue = roasNum * adCostNum;
+    const AdGst = adCostNum * 0.18; // 18% of AdCost
+    const TotalAdCost = adCostNum + AdGst;
+
+    const GST = TotalRevenue * (5 / 100); // 5% GST
+    const PrepaidShipping = (totalOrderNum * prepaid * 100) / 100;
+    const CODShipping = ((totalOrderNum * 51) / 100) * 136;
+    const LabourCost = totalOrderNum * 94;
+    const FixCost = totalOrderNum * 30;
+    const MaterialCost = totalOrderNum * 100;
+    const Paymoney = TotalRevenue * (1 / 100); // 1% Paymoney
+    const InteractCharges = totalOrderNum * 2;
+    const TotalExp =
+      TotalAdCost +
+      GST +
+      PrepaidShipping +
+      CODShipping +
+      LabourCost +
+      FixCost +
+      MaterialCost +
+      Paymoney +
+      InteractCharges;
+    const Total = TotalRevenue - TotalExp;
+    const AdPercentageWithoutGST = (adCostNum * 100) / TotalRevenue;
+    const AdPercentageWithGST = (TotalAdCost * 100) / TotalRevenue;
+    const FinalTotal = LabourCost + MaterialCost + Total;
+
+    navigate("/shadowbox-results", {
+      state: {
+        roas,
+        totalOrder,
+        TotalRevenue,
+        adCost,
+        prepaid,
+        AdGst,
+        TotalAdCost,
+        GST,
+        PrepaidShipping,
+        CODShipping,
+        LabourCost,
+        FixCost,
+        MaterialCost,
+        Paymoney,
+        InteractCharges,
+        TotalExp,
+        Total,
+        AdPercentageWithoutGST,
+        AdPercentageWithGST,
+        FinalTotal,
+      },
+    });
+  };
   
   return (
     <>
@@ -137,26 +106,10 @@ const Geometry = () => {
 
         <input
           type="number"
-          placeholder="Cancellation"
-          className="inputs"
-          value={cancellation}
-          onChange={(e) => setCancellation(e.target.value)}
-        />
-
-        <input
-          type="number"
           placeholder="Prepaid"
           className="inputs"
           value={prepaid}
           onChange={(e) => setPrepaid(e.target.value)}
-        />
-
-        <input
-          type="number"
-          placeholder="Return"
-          className="inputs"
-          value={returnVal}
-          onChange={(e) => setReturnVal(e.target.value)}
         />
 
         <button className="inputs" onClick={handleCalculation}>

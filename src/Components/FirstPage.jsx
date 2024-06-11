@@ -8,6 +8,9 @@ const FirstPage = () => {
       <Link to="/wallet">Wallet</Link>
       <Link to="/geometry">Geometry</Link>
       <Link to="/shadowbox">Shadow Box</Link>
+      <Link to="/panda">Panda</Link>
+      <Link to="/oilpainting">Oil Painting</Link>
+      <Link to="/puzzle">Puzzle</Link>
     </>
   );
 };
