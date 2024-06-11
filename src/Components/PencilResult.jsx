@@ -1,6 +1,7 @@
 import { useLocation } from "react-router-dom";
 
 const PencilResult = () => {
+
   const location = useLocation();
   const {
     roas,
@@ -31,10 +32,9 @@ const PencilResult = () => {
     AdPercentageWithGST,
     AdPercentageAfterCancellation,
     AdCostAfterReturn,
-    FinalTotal
   } = location.state || {};
 
-  
+
   return (
     <>
       <h1 className="heading">All Calculations</h1>
@@ -104,6 +104,9 @@ const PencilResult = () => {
           <h4 className="values">Labour Cost: {LabourCost || "N/A"}</h4>
         </div>
         <div className="allResults">
+          <h4 className="values">Return loss: {LabourCost || "N/A"}</h4>
+        </div>
+        <div className="allResults">
           <h4 className="values">Fix Cost: {FixCost || "N/A"}</h4>
         </div>
         <div className="allResults">
@@ -144,7 +147,7 @@ const PencilResult = () => {
           </h4>
         </div>
         <div className="allResults">
-          <h4 className="values">Total 2: {FinalTotal || "N/A"}</h4>
+          <h4 className="values">Total 2: {Total || "N/A"}</h4>
         </div>
       </div>
     </>

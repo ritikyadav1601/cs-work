@@ -1,66 +1,53 @@
-import "./Styles/results.css";
 import { useLocation } from "react-router-dom";
 
-const WalletRes = () => {
-  const location = useLocation();
-  const {
-    roas,
-    totalOrder,
-    adCost,
-    TotalRevenue,
-    cancellation,
-    prepaid,
-    returnVal,
-    FinalTotalRevenue,
-    AdGst,
-    TotalAdCost,
-    RevenueAfterCancellation,
-    CodRAlessPrepaidRevenue,
-    PrepaidRevenue,
-    Revenueafter20,
-    GST,
-    PrepaidShipping,
-    CODShipping,
-    LabourCost,
-    FixCost,
-    MaterialCost,
-    Paymoney,
-    InteractCharges,
-    TotalExp,
-    Total,
-    AdPercentageWithoutGST,
-    AdPercentageWithGST,
-    AdPercentageAfterCancellation,
-    AdCostAfterReturn,
-    OrderAfterCancel,
-    COD,
-    Sacle,
-    Return,
-    Total2
-  } = location.state || {};
+const GeometryRes = () => {
+
+    const location = useLocation();
+    const {
+      roas,
+      totalOrder,
+      adCost,
+      TotalRevenue,
+      cancellation,
+      prepaid,
+      returnVal,
+      FinalTotalRevenue,
+      AdGst,
+      TotalAdCost,
+      RevenueAfterCancellation,
+      CodRAlessPrepaidRevenue,
+      PrepaidRevenue,
+      Revenueafter20,
+      GST,
+      PrepaidShipping,
+      CODShipping,
+      LabourCost,
+      FixCost,
+      MaterialCost,
+      Paymoney,
+      InteractCharges,
+      TotalExp,
+      Total,
+      AdPercentageWithoutGST,
+      AdPercentageWithGST,
+      AdPercentageAfterCancellation,
+      AdCostAfterReturn,
+      FinalTotal
+    } = location.state || {};
+
 
   return (
     <>
+     <h1 className="heading">All Calculations</h1>
       <div className="results">
-
-      <div className="allResults">
-          <h4 className="values">Order After Cancel: {OrderAfterCancel ||  "N/A"}</h4>
-        </div>
-        <div className="allResults">
-          <h4 className="values">COD: { COD || "N/A"}</h4>
-        </div>
         <div className="allResults">
           <h4 className="values">ROAS: {roas || "N/A"}</h4>
         </div>
         <div className="allResults">
-          <h4 className="values">
-            Total Order: {totalOrder || "N/A"}
-          </h4>
+          <h4 className="values">Total Order: {totalOrder || "N/A"}</h4>
         </div>
         <div className="allResults">
-          <h4 className="values">
-            Total Revenue: {TotalRevenue || "N/A"}
-          </h4>
+          <h4 className="values">Total Revenue: {TotalRevenue || "N/A"}</h4>
         </div>
         <div className="allResults">
           <h4 className="values">Ad Cost: {adCost || "N/A"}</h4>
@@ -72,9 +59,7 @@ const WalletRes = () => {
           <h4 className="values">Total Ad Cost: {TotalAdCost || "N/A"}</h4>
         </div>
         <div className="allResults">
-          <h4 className="values">
-            Cancellation: {cancellation || "N/A"}
-          </h4>
+          <h4 className="values">Cancellation: {cancellation || "N/A"}</h4>
         </div>
         <div className="allResults">
           <h4 className="values">
@@ -82,14 +67,10 @@ const WalletRes = () => {
           </h4>
         </div>
         <div className="allResults">
-          <h4 className="values">
-            Prepaid: {prepaid || "N/A"}
-          </h4>
+          <h4 className="values">Prepaid: {prepaid || "N/A"}</h4>
         </div>
         <div className="allResults">
-          <h4 className="values">
-            Prepaid Revenue: {PrepaidRevenue || "N/A"}
-          </h4>
+          <h4 className="values">Prepaid Revenue: {PrepaidRevenue || "N/A"}</h4>
         </div>
         <div className="allResults">
           <h4 className="values">
@@ -97,9 +78,7 @@ const WalletRes = () => {
           </h4>
         </div>
         <div className="allResults">
-          <h4 className="values">
-            Return: {returnVal || "N/A"}
-          </h4>
+          <h4 className="values">Return: {returnVal || "N/A"}</h4>
         </div>
         <div className="allResults">
           <h4 className="values">
@@ -122,10 +101,6 @@ const WalletRes = () => {
         <div className="allResults">
           <h4 className="values">COD Shipping: {CODShipping || "N/A"}</h4>
         </div>
-        <div className="allResults">
-          <h4 className="values">Return loss: { Return || "N/A"}</h4>
-        </div>
-        
         <div className="allResults">
           <h4 className="values">Labour Cost: {LabourCost || "N/A"}</h4>
         </div>
@@ -170,14 +145,13 @@ const WalletRes = () => {
           </h4>
         </div>
         <div className="allResults">
-          <h4 className="values">Total 2: {Total2 || "N/A"}</h4>
-        </div>
-        <div className="allResults">
-          <h4 className="values">Scale { Sacle || "N/A"}</h4>
+          <h4 className="values">Total 2: {FinalTotal || "N/A"}</h4>
         </div>
       </div>
+    
+    
     </>
-  );
-};
+  )
+}
 
-export default WalletRes;
+export default GeometryRes

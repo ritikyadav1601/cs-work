@@ -5,7 +5,13 @@ import PencilCal from "./Components/PencilCal";
 import FirstPage from "./Components/FirstPage";
 import WalletCal from "./Components/WalletCal";
 import WalletRes from "./Components/WalletRes";
-import PencilResult from "./Components/PencilResult"
+import PencilResult from "./Components/PencilResult";
+import Geometry from "./Components/Geometry";
+import GeometryRes from "./Components/GeometryRes";
+import Panda from "./Components/Panda";
+import PandaResult from "./Components/PencilResult"
+import ShadowBox from "./Components/ShadowBox";
+import  ShadowBoxRes from "./Components/ShadowBoxRes"
 const App = () => {
 
   return (
@@ -23,6 +29,14 @@ const App = () => {
         <Route path="/wallet" element={<WalletCal />} />
         <Route path="/wallet-results" element={<WalletRes />} />
 
+        <Route path="/geometry" element={<Geometry />} />
+        <Route path="/geometry-results" element={<GeometryRes />} />
+
+        <Route path="/shadowBox" element={<ShadowBox />} />
+        <Route path="/shadowbox-results" element={<ShadowBoxRes />} />
+        
+        <Route path="/Panda" element={<Panda />} />
+        <Route path="/Panda-result" element={<PandaResult />} />
       </Routes>
     </Router>
   );
